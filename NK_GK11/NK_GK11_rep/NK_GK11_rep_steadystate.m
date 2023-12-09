@@ -190,12 +190,14 @@ outputgap  = 0;
 a=0;
 ksi=0; 
 g=0;
+zeta=0;
                              
- e_a     =   0;
- e_ksi   =   0;
- e_g     =   0;
- e_Ne    =   0;
- e_i     =   0;
+e_a     =   0;
+e_ksi   =   0;
+e_g     =   0;
+e_Ne    =   0;
+e_i     =   0;
+e_zeta  =   0;
 
 %%
 %% END OF THE MODEL SPECIFIC BLOCK.

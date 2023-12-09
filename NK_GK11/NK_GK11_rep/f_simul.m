@@ -92,6 +92,7 @@ i   =   R;
 a       =   0;
 ksi     =   0;
 g       =   0;
+zeta    =   0;
 
 %shocks
 e_a     =   0;
@@ -99,6 +100,7 @@ e_ksi   =   0;
 e_g     =   0;
 e_Ne    =   0;
 e_i     =   0;
+e_zeta  =   0;
 
 %Creating cell array of variables
 vars_cell   =   {'Y';'Ym'; 'K'; 'Keff'; 'K'; 'L'; 'I'; 'C'; 'G'; 'Q'; 'varrho'; 'Lambda'; 'Rk'; 'R'; 'N'; 'Ne'; 'Nn'; 'nu'; 'eta'; 'phi'; 'z'; 'x'; 'Pm'; 'w'; 'VMPK'; 'U'; 'X';'D'; 'F';'Z';'i';'b';'delta_c';'prem'};
@@ -116,7 +118,7 @@ for ii=1:nn_vars
 end;
 
 %Creating structure with variables that are linearized
-vars_nolog_cell     =   {'In';'Welf';'a';'ksi';'g';'infl';'inflstar'};
+vars_nolog_cell     =   {'In';'Welf';'a';'ksi';'g';'zeta';'infl';'inflstar'};
 nn_vars_nolog   =   length(vars_nolog_cell);
 for ii=1:nn_vars_nolog
     eval(['vars_nolog.' vars_nolog_cell{ii} '=' vars_nolog_cell{ii} ';']);

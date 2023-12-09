@@ -4,16 +4,16 @@
 
 
 var Y Ym K Keff L I C G Q varrho Lambda Rk R N Ne Nn nu eta phi z x Pm w 
-     VMPK U X D F Z i prem delta In Welf infl inflstar a ksi g chi;
+     VMPK U X D F Z i prem delta In Welf infl inflstar a ksi g zeta;    
 
-varexo e_a e_ksi e_g e_Ne e_i e_chi;   
+varexo e_a e_ksi e_g e_Ne e_i e_zeta;
 
 
 parameters 
 
  betta sig hh varphi zetta theta alfa G_over_Y eta_i epsilon gam gam_P kappa_pi kappa_y rho_i rho_ksi sigma_ksi rho_a
- sigma_a rho_g sigma_g sigma_Ne sigma_i rho_shock_psi sigma_psi kappa tau omega lambda b delta_c G_ss I_ss Pmf
- L_mom RkmR_mom phi_mom  L0 K0 chi0 lambda0 omega0 deltai Y_ss rho_chi sigma_chi;//kappa tau
+ sigma_a rho_g sigma_g sigma_Ne sigma_i rho_shock_psi sigma_psi kappa tau omega lambda chi b delta_c G_ss I_ss Pmf
+ L_mom RkmR_mom phi_mom  L0 K0 chi0 lambda0 omega0 deltai Y_ss rho_zeta sigma_zeta;
 
 %exogenous chosen parameters
 betta   =   0.99;           %Discount rate
@@ -49,8 +49,8 @@ sigma_Ne    =   0.01;       %wealth shock
 sigma_i     =   0.01;       %monetary policy shock
 rho_shock_psi=  0.66;       %persistence of the CP shock
 sigma_psi   =   0.072;      %size of the CP shock
-sigma_chi   =   0.01;
-rho_chi     =   0.95;
+rho_zeta    =   0.95;
+sigma_zeta  =   0.01;
 
 kappa=10.00000000;
 tau=0.00100000; 
@@ -96,7 +96,7 @@ betta*exp(R)*exp(Lambda(+1))  =   1;
 exp(Lambda)  =   exp(varrho)/exp(varrho(-1));
 
 //4. Labor market equilibrium 
-exp(chi)*exp(L)^varphi    =   exp(varrho)*exp(Pm)*(1-alfa)*exp(Y)/exp(L);
+exp(zeta)*chi*exp(L)^varphi    =   exp(varrho)*exp(Pm)*(1-alfa)*exp(Y)/exp(L);
 
 //Financial Intermediaries
 
@@ -200,7 +200,7 @@ exp(w)      =   exp(Pm)*(1-alfa)*exp(Y)/exp(L);
 exp(VMPK)   =   exp(Pm)*alfa*exp(Y)/(exp(ksi)*exp(K(-1)));
 
 //38. Welfare
-Welf    =   log(exp(C)-hh*exp(C(-1)))-exp(chi)*exp(L)^(1+varphi)/(1+varphi)+betta*Welf(+1);
+Welf    =   log(exp(C)-hh*exp(C(-1)))-exp(zeta)*chi*exp(L)^(1+varphi)/(1+varphi)+betta*Welf(+1);
 
 //39. Premium
 exp(prem)   =   exp(Rk(+1))/exp(R); 
@@ -216,10 +216,8 @@ ksi=   rho_ksi*ksi(-1)-e_ksi;
 //34. Government consumption shock
 g  =   rho_g*g(-1)-e_g;
 
-//35. Labour utility shock
-chi = rho_chi*chi(-1)-e_chi;
-
-
+//40. Labor supply shock
+zeta = rho_zeta*zeta(-1)-e_zeta;
 
 
 end;
@@ -279,7 +277,7 @@ var e_ksi=sigma_ksi^2;
 var e_g=sigma_g^2;
 var e_Ne=1;//sigma_Ne^2;
 var e_i=0.25^2;//sigma_i^2;
-var e_chi=sigma_chi^2;
+var e_zeta=sigma_zeta^2;
 end;
 
 //check;
