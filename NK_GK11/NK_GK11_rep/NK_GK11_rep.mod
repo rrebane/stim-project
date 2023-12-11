@@ -75,7 +75,7 @@ K0      =   9.5;
 % endogeous determined parameters
 lambda0  =  0.3815;          %Starting value divertable fraction 
 omega0   =  0.002;           %Starting value of proportional starting up funds
-chi0    =   1.223;             %Starting value for the labor utility weight is ln(3.4)
+chi0    =   3.4;             %Starting value for the labor utility weight
 //lambda  =  lambda0;          %Starting value divertable fraction 
 //omega   =  omega0;           %Starting value of proportional starting up funds
 //chi      =   chi0;
