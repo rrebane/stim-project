@@ -49,8 +49,8 @@ sigma_Ne    =   0.01;       %wealth shock
 sigma_i     =   0.01;       %monetary policy shock
 rho_shock_psi=  0.66;       %persistence of the CP shock
 sigma_psi   =   0.072;      %size of the CP shock
-rho_zeta    =   0.95;
-sigma_zeta  =   0.01;
+rho_zeta    =   0.50;       % The AR(1) coefficient of the shock (in log scale).
+sigma_zeta  =   0.174;      % Standard deviation of the log-normal labor supply shock (the standard deviation is on log scale). This produces a drop in labour of ~17% from the stable state value.
 
 kappa=10.00000000;
 tau=0.00100000; 
@@ -217,6 +217,7 @@ ksi=   rho_ksi*ksi(-1)-e_ksi;
 g  =   rho_g*g(-1)-e_g;
 
 //40. Labor supply shock
+// Note: -e_zeta for negative shock and +e_zeta for positive shock.
 zeta = rho_zeta*zeta(-1)-e_zeta;
 
 
@@ -277,7 +278,7 @@ var e_ksi=sigma_ksi^2;
 var e_g=sigma_g^2;
 var e_Ne=1;//sigma_Ne^2;
 var e_i=0.25^2;//sigma_i^2;
-var e_zeta=sigma_zeta^2;
+var e_zeta=sigma_zeta^2; // Variance of shock. Impulse response functions are calculated for a change of 1 standard deviation of the shock.
 end;
 
 //check;
