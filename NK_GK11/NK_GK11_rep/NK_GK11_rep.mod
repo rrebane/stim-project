@@ -49,8 +49,8 @@ sigma_Ne    =   0.01;       %wealth shock
 sigma_i     =   0.01;       %monetary policy shock
 rho_shock_psi=  0.66;       %persistence of the CP shock
 sigma_psi   =   0.072;      %size of the CP shock
-rho_zeta    =   0.50;       % The AR(1) coefficient of the shock (in log scale).
-sigma_zeta  =   0.174;      % Standard deviation of the log-normal labor supply shock (the standard deviation is on log scale). This produces a drop in labour of ~17% from the stable state value.
+rho_zeta    =   0.875;       % The AR(1) coefficient of the shock (in log scale).
+sigma_zeta  =   0.29;      % Standard deviation of the log-normal labor supply shock (the standard deviation is on log scale). This produces a drop in labour of ~17% from the stable state value.
 
 kappa=10.00000000;
 tau=0.00100000; 
@@ -218,7 +218,7 @@ g  =   rho_g*g(-1)-e_g;
 
 //40. Labor supply shock
 // Note: -e_zeta for negative shock and +e_zeta for positive shock.
-zeta = rho_zeta*zeta(-1)-e_zeta;
+zeta = rho_zeta*zeta(-1)+e_zeta;
 
 
 end;
